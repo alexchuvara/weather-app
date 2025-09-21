@@ -19,8 +19,15 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-indigo-800 flex items-center justify-center p-6">
-      <div className="w-full max-w-md">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-500 to-indigo-800 flex items-center justify-center p-6 overflow-hidden">
+
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute w-[400px] h-[400px] bg-white/20 rounded-full blur-[100px] top-[-100px] left-[-100px] animate-pulse" />
+        <div className="absolute w-[500px] h-[500px] bg-white/10 rounded-full blur-[120px] bottom-[-120px] right-[-120px] animate-pulse delay-500" />
+        <div className="absolute w-[300px] h-[300px] bg-white/15 rounded-full blur-[80px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse delay-1000" />
+      </div>
+
+      <div className="w-full max-w-2xl z-10 mx-auto">
         <Search onSearch={handleSearch} />
         {error && <p className="text-red-200 mb-4">{error}</p>}
         {weather && <WeatherCard data={weather} />}
