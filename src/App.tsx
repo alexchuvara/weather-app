@@ -1,12 +1,18 @@
-const App = () => {
+import WeatherCard from "./components/WeatherCard";
+
+const mockWeather = {
+    city: "Glasgow",
+    temperature: 18,
+    description: "Cloudy",
+    icon: "04d",
+};
+
+function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
-    <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/30 shadow-xl text-white text-center">
-      <h1 className="text-3xl font-bold mb-2">Weather App</h1>
-      <p className="text-lg">Tailwind works</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-indigo-800 flex items-center justify-center p-6">
+      <WeatherCard data={mockWeather} />
     </div>
-  </div>
-  )
+  );
 }
 
 export default App;
