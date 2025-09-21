@@ -9,7 +9,7 @@ const mockWeather = {
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-indigo-800 flex items-center justify-center p-6">
+     <div className="min-h-screen bg-gradient-to-br from-blue-500 to-indigo-800 flex items-center justify-center p-6">
       <WeatherCard data={mockWeather} />
     </div>
   );
