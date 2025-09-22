@@ -1,8 +1,9 @@
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+const lang = navigator.language.slice(0, 2);
 
 export async function getWeatherByCoords(lat: number, lon: number) {
     const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=${lang}`
     );
 
     if (!response.ok) {
