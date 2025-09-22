@@ -6,6 +6,7 @@ import Forecast from "./components/Forecast";
 import { getWeather } from "./api/getWeather";
 import { getWeatherByCoords } from "./api/getWeatherByCoords";
 import { getForecast } from "./api/getForecast";
+import { getForecastByCoords } from "./api/getForecastByCoords";
 
 
 
@@ -23,7 +24,12 @@ const App = () => {
               position.coords.latitude,
               position.coords.longitude
             );
+            const forecastData = await getForecastByCoords(
+              position.coords.latitude,
+              position.coords.longitude
+            );
             setWeather(data);
+            setForecast(forecastData);
           } catch (err) {
             console.error("Error retrieving weather by coordinates", err);
           }
