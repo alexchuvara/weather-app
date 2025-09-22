@@ -23,7 +23,7 @@ const WeatherCard: React.FC<Props> = ({ data }) => {
             <div className="flex justify-between items-center">
                 <div>
                     <h2 className="text-4xl font-bold">{data.city}</h2>
-                    <p className="text-lg capitalize opacity-90 mt-1">{data.description}</p>
+                    <p className="text-lg capitalize opacity-90 mt-1 text-white dark:text-gray-200">{data.description}</p>
                 </div>
                 <img
                 src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`}
