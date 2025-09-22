@@ -28,10 +28,16 @@ const App = () => {
         <div className="absolute w-[300px] h-[300px] bg-white/15 rounded-full blur-[80px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse delay-1000" />
       </div>
 
-      <div className="w-full max-w-2xl z-10 mx-auto">
-        <Search onSearch={handleSearch} />
-        {error && <p className="text-red-200 mb-4">{error}</p>}
-        {weather && <WeatherCard data={weather} />}
+      <div className="w-full px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto z-10">
+        <div className="flex flex-col items-center">
+          <Search onSearch={handleSearch} />
+          {error && <p className="text-red-200 mb-4">{error}</p>}
+          {weather && (
+            <div className="w-full flex justify-center">
+              <WeatherCard data={weather} />
+            </div>
+          )}
+        </div>  
       </div>
     </div>
   );

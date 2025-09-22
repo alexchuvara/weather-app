@@ -17,20 +17,22 @@ const Search: React.FC<Props> = ({ onSearch }) => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex items-center justify-center gap-4 mb-8 transition-all duration-300"
+            className="flex flex-col sm:flex-row gap-4 mb-8 items-center justify-center transition-all duration-300"
         >
             <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter city..."
-                className="px-6 py-3 w-full max-w-xs rounded-xl bg-white/20 text-white text-lg placeholder-white/70 
-                   focus:outline-none focus:ring-4 focus:ring-white/40 backdrop-blur-md transition-all duration-300"
+                className="px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg rounded-xl bg-white/20 
+               text-white placeholder-white/70 focus:outline-none focus:ring-2 
+               focus:ring-white/40 backdrop-blur-md w-full sm:max-w-xs transition"
             />
             <button
                 type="submit"
-                className="px-6 py-3 text-lg bg-white/20 text-white rounded-xl backdrop-blur-md 
-                   hover:bg-white/30 hover:scale-105 active:scale-95 transition-all duration-300"
+                className="px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg bg-white/20 text-white 
+               rounded-xl backdrop-blur-md hover:bg-white/30 hover:scale-105 active:scale-95 
+               transition w-full sm:w-auto"
             >
                 Search
             </button>
