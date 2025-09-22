@@ -18,20 +18,22 @@ const Forecast: React.FC<Props> = ({ forecast }) => {
     };
 
     return (
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-white">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 text-white">
             {forecast.map((day, index) => (
                 <div
                     key={index}
-                    className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/30 shadow-lg text-center"
+                    className={`bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/30 shadow-lg text-center ${
+                    index === 2 ? 'col-span-2 sm:col-span-1' : ''
+                    }`}
                 >
-                    <p className="text-lg font-semibold">{getWeekday(day.date)}</p>
+                    <p className="text-base sm:text-lg font-semibold">{getWeekday(day.date)}</p>
                     <img
                         src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`}
                         alt="icon"
-                        className="w-16 h-16 mx-auto"
+                        className="w-12 h-12 sm:w-14 sm:h-14 mx-auto"
                     />
-                    <p className="text-2xl font-bold">{day.temperature}°C</p>
-                    <p className="text-sm capitalize">{day.description}</p>
+                    <p className="text-xl sm:text-2xl font-bold">{day.temperature}°C</p>
+                    <p className="text-xs sm:text-sm capitalize">{day.description}</p>
                 </div>
             ))}
         </div>

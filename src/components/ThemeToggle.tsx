@@ -8,8 +8,9 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="absolute top-6 right-6 z-20 p-2 bg-white/20 text-white rounded-full 
-                 hover:scale-110 active:scale-95 backdrop-blur-md transition"
+            className="fixed top-3 right-3 sm:top-5 sm:right-5 z-50 
+             p-2 sm:p-2.5 bg-white/20 text-white rounded-full 
+             hover:scale-110 active:scale-95 backdrop-blur-md transition"
         >
             {theme === "dark" ? <FaSun /> : <FaMoon />}
         </button>
