@@ -1,13 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WeatherCard from "./components/WeatherCard";
 import Search from "./components/Search";
-import { getWeather } from "./api/getWeather";
 import ThemeToggle from "./components/ThemeToggle";
+import { getWeather } from "./api/getWeather";
+import { getWeatherByCoords } from "./api/getWeatherByCoords";
+
 
 const App = () => {
   const [weather, setWeather] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          try {
+            const data = await getWeatherByCoords(
+              position.coords.latitude,
+              position.coords.longitude
+            );
+            setWeather(data);
+          } catch (err) {
+            console.error("Error retrieving weather by coordinates", err);
+          }
+        },
+        (error) => {
+          console.warn("The user has disabled geolocation:", error.message);
+        }
+      );
+    }
+  }, []);
+
   const handleSearch = async (city: string) => {
     try {
       setError(null);
