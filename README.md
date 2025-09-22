@@ -1,69 +1,66 @@
-# React + TypeScript + Vite
+# 🌦️ Weather App — Liquid Glass Edition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern weather app with geolocation, 3-day forecast, dark/light theme toggle, and a minimalist glassmorphism UI. Built with **React + TypeScript + Tailwind CSS + OpenWeatherMap API**.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+➡️ [https://weather.alexchuvara.dev](https://weather.alexchuvara.dev)  
+*(replace with your actual Vercel or Netlify deployment link)*
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📸 Screenshots
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🌤️ Light Theme
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Desktop | Mobile |
+|--------|--------|
+| ![Light Desktop](./screenshots/desktop-light.png) | ![Light Mobile](./screenshots/mobile-light.png) |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🌙 Dark Theme
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Desktop | Mobile |
+|--------|--------|
+| ![Dark Desktop](./screenshots/desktop-dark.png) | ![Dark Mobile](./screenshots/mobile-dark.png) |
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧰 Tech Stack
+
+- ⚛ **React + Vite**
+- 🧠 **TypeScript**
+- 🎨 **Tailwind CSS**
+- 💨 **Framer Motion**
+- ☀️ **Dark/Light theme with system preference and persistence**
+- 🌍 **OpenWeatherMap API**
+- 📦 **Vercel (deployment)**
+
+---
+
+## ✅ Features
+
+- 🔍 Search weather by city
+- 📍 Auto-detect user location via browser
+- 🌦️ 3-day weather forecast
+- 🌓 Dark/light theme toggle
+- 🈯 Automatic weather description translation based on browser language (`en`, `uk`, `pl`, etc.)
+- 📱 Fully responsive design (mobile-friendly)
+- 🔮 Glassmorphic UI with blur effects
+- 🌀 Loading spinner during API calls
+- 🔐 Secure environment variables with `.env`
+
+---
+
+## ⚙️ Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/alexchuvara/weather-app.git
+cd weather-app
+
+# Install dependencies
+npm install
+
+# Create .env file
+touch .env

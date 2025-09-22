@@ -14,12 +14,14 @@ const App = () => {
   const [weather, setWeather] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [forecast, setForecast] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           try {
+            setIsLoading(true);
             const data = await getWeatherByCoords(
               position.coords.latitude,
               position.coords.longitude
@@ -32,6 +34,8 @@ const App = () => {
             setForecast(forecastData);
           } catch (err) {
             console.error("Error retrieving weather by coordinates", err);
+          } finally {
+            setIsLoading(false);
           }
         },
         (error) => {
@@ -43,6 +47,7 @@ const App = () => {
 
   const handleSearch = async (city: string) => {
     try {
+      setIsLoading(true);
       setError(null);
       const data = await getWeather(city);
       const forecastData = await getForecast(city);
@@ -52,8 +57,11 @@ const App = () => {
       setError("City not found. Please try again.");
       setWeather(null);
       setForecast([]);
+    } finally {
+      setIsLoading(false);
     }
   };
+
 
   return (
     <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-blue-500 to-indigo-800 dark:from-gray-900 dark:to-black flex items-center justify-center py-6">
@@ -70,14 +78,18 @@ const App = () => {
             <Search onSearch={handleSearch} />
           </div>
           {error && <p className="text-red-200 mb-4">{error}</p>}
-          {weather && (
+          {isLoading ? (
+          <div className="flex items-center justify-center h-48">
+            <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin" />
+          </div>
+          ) : weather ? (
             <>
               <div className="w-full flex justify-center">
                 <WeatherCard data={weather} />
               </div>
                 <Forecast forecast={forecast} />
             </>
-          )}
+          ) : null}
         </div>  
       </div>
     </div>
