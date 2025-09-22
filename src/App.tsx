@@ -2,13 +2,17 @@ import { useState, useEffect } from "react";
 import WeatherCard from "./components/WeatherCard";
 import Search from "./components/Search";
 import ThemeToggle from "./components/ThemeToggle";
+import Forecast from "./components/Forecast";
 import { getWeather } from "./api/getWeather";
 import { getWeatherByCoords } from "./api/getWeatherByCoords";
+import { getForecast } from "./api/getForecast";
+
 
 
 const App = () => {
   const [weather, setWeather] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [forecast, setForecast] = useState<any[]>([]);
   
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -35,12 +39,15 @@ const App = () => {
     try {
       setError(null);
       const data = await getWeather(city);
+      const forecastData = await getForecast(city);
       setWeather(data);
+      setForecast(forecastData);
     } catch (err) {
       setError("City not found. Please try again.");
       setWeather(null);
+      setForecast([]);
     }
-  }
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-500 to-indigo-800 dark:from-gray-900 dark:to-black flex items-center justify-center p-6 overflow-hidden">
@@ -56,9 +63,12 @@ const App = () => {
           <Search onSearch={handleSearch} />
           {error && <p className="text-red-200 mb-4">{error}</p>}
           {weather && (
-            <div className="w-full flex justify-center">
-              <WeatherCard data={weather} />
-            </div>
+            <>
+              <div className="w-full flex justify-center">
+                <WeatherCard data={weather} />
+              </div>
+                <Forecast forecast={forecast} />
+            </>
           )}
         </div>  
       </div>
