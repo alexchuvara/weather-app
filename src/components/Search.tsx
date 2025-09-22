@@ -24,13 +24,13 @@ const Search: React.FC<Props> = ({ onSearch }) => {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter city..."
-                className="px-5 py-3 w-full sm:w-auto max-w-xs rounded-xl text-base sm:text-lg bg-white/20 text-white 
+                className="w-full sm:w-[240px] h-12 px-5 rounded-xl text-base bg-white/20 text-white 
                placeholder-white/70 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-white/40 transition-all"
             />
             <button
                 type="submit"
-                className="px-5 py-3 w-full sm:w-auto text-base sm:text-lg bg-white/20 text-white rounded-xl backdrop-blur-md 
-               hover:bg-white/30 hover:scale-105 active:scale-95 transition-all"
+                className="w-full sm:w-[120px] h-12 text-base bg-white/20 text-white rounded-xl 
+               backdrop-blur-md hover:bg-white/30 hover:scale-105 active:scale-95 transition-all"
             >
                 Search
             </button>
