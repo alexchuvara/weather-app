@@ -4,8 +4,7 @@ A modern weather app with geolocation, 3-day forecast, dark/light theme toggle, 
 
 ## 🚀 Live Demo
 
-➡️ [https://weather.alexchuvara.dev](https://weather.alexchuvara.dev)  
-*(replace with your actual Vercel or Netlify deployment link)*
+➡️ [https://weather-app-cyan-five-72.vercel.app/](https://weather-app-cyan-five-72.vercel.app/)  
 
 ---
 
